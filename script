@@ -1,0 +1,16 @@
+// ==UserScript==
+// @name         Neopets - Dice-A-Roo Button Move
+// @namespace    http://tampermonkey.net/
+// @version      2024-03-15
+// @description  fix button
+// @author       s-morz
+// @match        https://www.neopets.com/games/play_dicearoo.phtml
+// @match        https://www.neopets.com/games/dicearoo.phtml
+// @grant        none
+// ==/UserScript==
+
+var button = $("form[method='post']").first();
+var header = $("div[class='contentModuleHeader']");
+button.clone(true).insertAfter(header).wrap("<center></center>");
+$("<p>").insertAfter(header);
+button.remove();
